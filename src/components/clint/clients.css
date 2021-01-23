@@ -1,0 +1,7 @@
+.clint .clint_head{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.clint .clint_head span{
+    line-height: 30px;
+}
