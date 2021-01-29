@@ -5,7 +5,7 @@ import {FaPlus} from "react-icons/fa"
 
 const slider = ()=>{
     return(
-        <Link to="/" className="btn btn-success" >
+        <Link to="/client/add" className="btn btn-success" >
             <FaPlus/>
             <span className="ml-2">New</span>
         </Link>

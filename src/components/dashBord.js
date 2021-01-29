@@ -1,5 +1,5 @@
 import React from "react";
-import Clint from "./clint/clint"
+import Clint from "./clint/client"
 import Slider from "./layout/slider"
 
 
