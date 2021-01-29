@@ -1,7 +1,24 @@
-.clint .clint_head{
+.client .client_head{
     font-size: 2rem;
     font-weight: bold;
 }
-.clint .clint_head span{
+.client .client_head span{
     line-height: 30px;
 }
+.modal-content ,.card{
+    background-color: #8b8b8b !important;
+}
+
+
+/* heied number arrow Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
