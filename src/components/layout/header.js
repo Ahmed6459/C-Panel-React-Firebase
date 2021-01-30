@@ -14,10 +14,6 @@ const Hedder = ({toggleTheme,theme}) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-        <LinkContainer to="/">
-          <Nav.Link >Home</Nav.Link>
-        </LinkContainer>
-          <Nav.Link href="#link" className="mr-2">Link</Nav.Link>
           <Toggle toggleTheme={toggleTheme} theme={theme}/>
         </Nav>
       </Navbar.Collapse>

@@ -1,17 +1,15 @@
 import React from "react";
-import { FaArrowAltCircleRight, FaUsers,FaRegTrashAlt, FaEdit } from "react-icons/fa";
+import { FaUsers,FaRegTrashAlt, FaEdit } from "react-icons/fa";
 import { Alert } from "react-bootstrap";
 import "./clients.css";
 import { Link,useHistory } from "react-router-dom";
 
 import Spenner from "../layout/spenner";
-import ShowDetails from "./EditClient";
 import {removeTask} from "../../actions/taskaction"
 
 //redux and firebase
 import { useSelector,useDispatch } from "react-redux";
 import { useFirestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
-import { useFirestore } from 'react-redux-firebase'
 
 
 const Clients = () => {
@@ -24,7 +22,7 @@ const Clients = () => {
 
   const clients = useSelector((state) => state.firestore.ordered.client);
 
-
+//handel remove function
   const removeClientHandler = (id)=>{
     dispatch(removeTask(id));
 }
@@ -35,15 +33,8 @@ const Clients = () => {
       (acc, client) => parseFloat(acc + Number(client.balance)),
       0
     );
-    const firestore =   useFirestore()
 
 
-    //deleate client = > 
-    const deleteClient = (id)=>{
-      const client = firestore.collection({collection:'client',doc:id})
-      return   console.log(client);
-    }
-  console.log(Number(totalBalance).toFixed(2));
   if (!isLoaded(clients)) {
     return <Spenner />;
   }
@@ -71,7 +62,6 @@ const Clients = () => {
         <table className="mt-3 w-100 table-bordered">
           <thead>
             <tr>
-              <th>ID</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
@@ -84,7 +74,6 @@ const Clients = () => {
           <tbody>
             {clients.map((client) => (
               <tr key={client.id}>
-                <td className="p-3">3</td>
                 <td>{client.fristname}</td>
                 <td>{client.lastname}</td>
                 <td>{client.email}</td>
@@ -97,7 +86,7 @@ const Clients = () => {
                 </button>
                 </td>
                 <td>
-                <button className="btn btn-primary" onClick={()=>history.push("/clint/edit/:id")} >  
+                <button className="btn btn-primary" onClick={()=>history.push(`/clint/edit/${client.id}`)} >  
                 Edit {" "}               
                 <FaEdit/>
                 </button>
