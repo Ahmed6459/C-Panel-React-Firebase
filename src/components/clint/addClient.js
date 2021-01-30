@@ -25,7 +25,7 @@ export default function AddClient() {
             <label >Frist Name</label>
             <input
                 type="text"
-                className="form-control"
+                className="rounded-pill form-control"
                 id="fristname"
                 aria-describedby="emailHelp"
                 name="fristname"
@@ -41,7 +41,7 @@ export default function AddClient() {
             <label>Last Name</label>
             <input
                 type="text"
-                className="form-control"
+                className="rounded-pill form-control"
                 id="exampleInputPassword1"
                 name="lastname"
                  ref={register({ required: true })}
@@ -57,7 +57,7 @@ export default function AddClient() {
           <label >Email</label>
           <input
             type="email"
-            className="form-control"
+            className="rounded-pill form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
              ref={register({ required: true,pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/})}
@@ -70,7 +70,7 @@ export default function AddClient() {
           <label >Phone</label>
           <input
             type="text"
-            className="form-control"
+            className="rounded-pill form-control"
              ref={register({ required: true,pattern: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im })}
             name="phone"
           />
@@ -81,7 +81,7 @@ export default function AddClient() {
           <label >Balance</label>
           <input
             type="number"
-            className="form-control"
+            className="rounded-pill form-control"
             ref={register({ required: true,pattern:/^[0-9]+$/,valueAsNumber: true})}
             name="balance"
           />
@@ -89,7 +89,7 @@ export default function AddClient() {
           {errors.balance&&errors.balance.type === "valueAsNumber"?<span className="d-block text-danger">Numbers Only</span>:""}
         </div>
     </div>
-    <button type="submit" className="btn btn-primary col-12 w-50">
+    <button type="submit" className="btn btn-primary col-12 w-50 rounded-pill d-block m-auto">
           Submit
         </button>
       </form>
