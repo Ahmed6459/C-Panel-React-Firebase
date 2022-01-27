@@ -2,7 +2,7 @@ import React from "react";
 import { FaUsers,FaRegTrashAlt, FaEdit } from "react-icons/fa";
 import { Alert } from "react-bootstrap";
 import "./clients.css";
-import { Link,useHistory } from "react-router-dom";
+import { Link,Redirect,useHistory } from "react-router-dom";
 
 import Spenner from "../layout/spenner";
 import {removeTask} from "../../actions/taskaction"
@@ -22,6 +22,10 @@ const Clients = () => {
 
   const clients = useSelector((state) => state.firestore.ordered.client);
 
+  const auth = useSelector(state=>state.firebase.auth)
+
+  const {uid} = auth;
+
 //handel remove function
   const removeClientHandler = (id)=>{
     dispatch(removeTask(id));
@@ -34,6 +38,11 @@ const Clients = () => {
       0
     );
 
+
+    //
+if(!uid){
+  return <Redirect to="/login" />
+}
 
   if (!isLoaded(clients)) {
     return <Spenner />;
